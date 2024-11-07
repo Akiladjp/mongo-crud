@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
     },
     birth: {
         type: Date,
@@ -17,7 +16,6 @@ const userSchema = new mongoose.Schema({
     mobile: {
         type: String,
         required: true,
-        match: [/^\d{10}$/, 'Please enter a valid 10-digit mobile number'],
     },
     blood: {
         type: String,
@@ -29,9 +27,8 @@ const userSchema = new mongoose.Schema({
     },
     donationCount: {
         type: Number,
-        required: true,
-        default: 0,
+        required: false,
     },
 });
 
-export default mongoose.model('bloodDonation', userSchema);
+export default mongoose.model("donations", userSchema);
