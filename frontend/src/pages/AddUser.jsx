@@ -11,7 +11,6 @@ export const AddUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({ name, birth, gender, mobile, blood, weight });
-
   };
 
   return (
@@ -93,7 +92,11 @@ export const AddUser = () => {
             placeholder="Enter weight in kg"
             className={`w-full mt-1 p-2 border border-gray-300 rounded-md`}
             value={weight}
-            onChange={(e) => setWeight(e.target.value)}
+            min="0"
+            onChange={(e) => {
+              const values = e.target.value;
+              setWeight(values < 0 ? 0 : values);
+            }}
           />
         </div>
         <div className="flex justify-center mt-12">
